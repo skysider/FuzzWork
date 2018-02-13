@@ -13,6 +13,8 @@ cmake \
     -DCMAKE_C_COMPILER=afl-clang \
     -DCMAKE_CXX_COMPILER=afl-clang++ \
     -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_C_COMPILER_DEBUG='-g -ggdb -O0 -fno-omit-frame-pointer' \
+    -DCMAKE_CXX_COMPILER_DEBUG='-g -ggdb -O0 -fno-omit-frame-poniter' \
     -DBUILD_SHARED_LIBS=OFF \
     --build ${SRC}
 make
