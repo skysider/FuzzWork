@@ -16,6 +16,8 @@ RUN apt-get update && \
     gdb \
     git \
     wget \
+    ltrace \
+    strace \
     python-pip && \
     update-alternatives --install /usr/bin/clang clang /usr/bin/clang-${LLVM_VERSION} 60 \
 	--slave /usr/bin/clang++ clang++ /usr/bin/clang++-${LLVM_VERSION} \
