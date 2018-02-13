@@ -13,10 +13,11 @@ RUN apt-get -y update && \
     libtiff-dev && \
     rm -rf /var/lib/apt/list/* 
 
-RUN wget https://xpdfreader-dl.s3.amazonaws.com/xpdf-${XPDF_VERSION}.tar.gz && \
-    tar xzvf xpdf-${XPDF_VERSION}.tar.gz && rm xpdf-${XPDF_VERSION}.tar.gz
-
 COPY build.sh /work/
+
+RUN wget https://xpdfreader-dl.s3.amazonaws.com/xpdf-${XPDF_VERSION}.tar.gz && \
+    tar xzvf xpdf-${XPDF_VERSION}.tar.gz && rm xpdf-${XPDF_VERSION}.tar.gz && \
+    chmod a+x build.sh
 
 ENV SRC=/work/xpdf-${XPDF_VERSION}
 
