@@ -1,4 +1,4 @@
-FROM skysider/fuzzbase:latest
+FROM skysider/fuzzwork:base_afl
 
 LABEL maintainer="junchaoluan@gmail.com"
 
