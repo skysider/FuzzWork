@@ -22,7 +22,7 @@ WORKDIR /work
 RUN pip install -U setuptools && \
     pip install https://github.com/lief-project/packages/raw/lief-master-latest/pylief-${LIEF_VERSION}.dev.zip && \
     git clone https://github.com/Exim/exim.git && cd exim && \
-    git reset --hard cf3cd306062a08969c41a1cdd32c6855f1abecf1~1 && \
+    git reset --hard cf3cd306062a08969c41a1cdd32c6855f1abecf1~1 && cd src && mkdir Local && \
     cp src/EDITME Local/Makefile && cp exim_monitor/EDITME Local/eximon.conf && \
     sed -i 's/^EXIM_USER=/EXIM_USER=exim/' Local/Makefile &&  useradd exim && \
     FULLECHO='' LFLAGS+="-fsanitize=address -lasan -pie" \
