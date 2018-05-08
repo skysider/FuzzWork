@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM skysider/fuzzwork:base_libfuzzer
 LABEL maintainer=skysider@163.com
 
 ENV LIEF_VERSION 0.8.3
