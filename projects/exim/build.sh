@@ -7,6 +7,7 @@ mkdir Local
 cp src/EDITME Local/Makefile
 cp exim_monitor/EDITME Local/eximon.conf
 sed -i 's/^EXIM_USER=/EXIM_USER=exim/' Local/Makefile
+sed -i '39 aecho\n' scripts/Configure-config.h
 useradd exim
 FULLECHO="" LFLAGS+="-fsanitize=address -lasan -pie" CFLAGS+="-fPIC -O1 -g -fsanitize=address" LDFLAGS+="-lasan -pie -ldl -lm -lcrypt" LIBS+="-lasan -pie" make -e exim
 cd ../..
