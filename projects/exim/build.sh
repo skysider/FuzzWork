@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd exim
+git pull origin
 cd src
 rm -rf build-Linux-x86_64
 mkdir Local
