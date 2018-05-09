@@ -19,7 +19,7 @@ RUN apt-get -y update && \
 
 WORKDIR /work
 
-COPY exe2so.py loader.cpp build.sh /work/
+COPY exe2so.py build.sh /work/
 
 RUN pip install -U setuptools && \
     pip install https://github.com/lief-project/packages/raw/lief-master-latest/pylief-${LIEF_VERSION}.dev.zip && \
@@ -27,6 +27,4 @@ RUN pip install -U setuptools && \
 
 RUN cp exim/src/build-Linux-x86_64/exim exim2 && \
     python exe2so.py exim2 b64decode store_reset_3 && mv exim2.so exim.so && \
-    clang-6.0 -DUSE_LIBFUZZER -O1 -g -fsanitize=fuzzer loader.cpp -no-pie -o fuzzer -ldl
-
-CMD LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libasan.so.2.0.0 /work/fuzzer
+    clang -DUSE_LIBFUZZER -O1 -g -fsanitize=fuzzer loader.cpp -no-pie -o fuzzer -ldl
