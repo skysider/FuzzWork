@@ -24,7 +24,3 @@ COPY exe2so.py build.sh /work/
 RUN pip install -U setuptools && \
     pip install https://github.com/lief-project/packages/raw/lief-master-latest/pylief-${LIEF_VERSION}.dev.zip && \
     git clone https://github.com/Exim/exim.git && chmod +x build.sh && ./build.sh
-
-RUN cp exim/src/build-Linux-x86_64/exim exim2 && \
-    python exe2so.py exim2 b64decode store_reset_3 && mv exim2.so exim.so && \
-    clang -DUSE_LIBFUZZER -O1 -g -fsanitize=fuzzer loader.cpp -no-pie -o fuzzer -ldl
