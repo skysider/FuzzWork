@@ -15,7 +15,7 @@ cmake \
     -DBUILD_SHARED_LIBS=OFF \
     -DTESTDATADIR=/work/test \
     ..
-AFL_HARDEN=1 make
+AFL_USE_ASAN=1 make
 cd ..
 rm -rf build_normal && mkdir build_normal && cd build_normal
 cmake \
