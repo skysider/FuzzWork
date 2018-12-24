@@ -20,8 +20,8 @@ COPY build.sh /work/
 
 ENV SRC=/work/poppler
 
-RUN git clone --depth=1 https://gitlab.freedesktop.org/poppler/poppler.git && \
-    git clone --depth=1 git://git.freedesktop.org/git/poppler/test && \
+RUN git clone https://gitlab.freedesktop.org/poppler/poppler.git && \
+    git clone git://git.freedesktop.org/git/poppler/test && \
     chmod +x ./build.sh && ./build.sh
 
 
